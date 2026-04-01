@@ -6,7 +6,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN pip3 install -r ml-service/requirements.txt
+RUN pip3 install --break-system-packages -r ml-service/requirements.txt
 
 RUN mvn -f backend/pom.xml clean package -DskipTests
 
