@@ -12,4 +12,6 @@ RUN mvn -f backend/pom.xml clean package -DskipTests
 
 EXPOSE 8080
 
-CMD python3 ml-service/main.py & java -jar backend/target/*.jar
+ENV PORT=8080
+
+CMD sh -c "python3 ml-service/main.py & java -jar backend/target/*.jar"
