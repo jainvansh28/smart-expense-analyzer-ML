@@ -1,53 +1,96 @@
-# Smart Expense Analyzer & Spending Behavior Predictor
+# 💰 Smart Expense Analyzer (ML-Based)
 
-A modern fintech dashboard for expense tracking, analytics, and ML-powered spending predictions.
+A full-stack personal finance management web application powered by Machine Learning.  
+This project helps users track expenses, predict future spending, detect anomalies, and get smart budget recommendations.
 
-## Tech Stack
+---
 
-- **Frontend**: React.js, Tailwind CSS, Framer Motion, Recharts, Lucide React
-- **Backend**: Java Spring Boot, JWT Authentication
-- **Database**: MySQL
-- **ML Service**: Python FastAPI, Scikit-learn
+## 🚀 Features
 
-## Features
+### 📊 Core Features
+- Track daily income & expenses
+- Category-wise expense distribution
+- Monthly financial overview
+- Budget management system
+- Saving goals tracking
 
-- User authentication with email OTP verification
-- Expense management (CRUD operations)
-- Real-time analytics and visualizations
-- ML-powered spending predictions
-- Smart budget suggestions
-- Student budget mode
-- Dark mode support
-- Responsive design
+---
 
-## Project Structure
+### 🤖 Machine Learning Features
+- 📈 Expense Prediction (Linear Regression)
+- 🚨 Anomaly Detection (Isolation Forest)
+- 🎯 Budget Recommendations (Random Forest)
+- 💡 AI Insights based on user spending patterns
 
-```
-smart-expense-analyzer/
-├── frontend/          # React application
-├── backend/           # Spring Boot API
-├── ml-service/        # Python FastAPI ML service
-└── database/          # SQL schemas and scripts
-```
+---
 
-## Quick Start
+## 🛠️ Tech Stack
 
-### Prerequisites
+### Frontend
+- React.js
+- Tailwind CSS
+- Framer Motion
 
-- Node.js 18+
-- Java 17+
-- Python 3.9+
-- MySQL 8.0+
-- Maven 3.8+
+### Backend
+- Spring Boot (Java)
+- REST APIs
 
-### Setup Instructions
+### ML Service
+- Python
+- Scikit-learn
+- Pandas, NumPy
 
-See [SETUP.md](SETUP.md) for detailed installation and configuration steps.
+### Database
+- MySQL
 
-## API Documentation
+---
 
-See [API.md](API.md) for complete REST API documentation.
+## ⚙️ Project Structure
 
-## License
+backend/        → Spring Boot APIs  
+frontend/       → React UI  
+ml-service/     → ML models & prediction APIs  
+database/       → SQL scripts  
 
-MIT
+---
+
+## ▶️ How to Run Locally
+
+### 1. Backend
+cd backend  
+mvn spring-boot:run  
+
+### 2. ML Service
+cd ml-service  
+pip install -r requirements.txt  
+python main.py  
+
+### 3. Frontend
+cd frontend  
+npm install  
+npm start  
+
+---
+
+## ⚠️ Important Notes
+- ML features will only work when ML service is running  
+- Backend and ML service must be connected properly  
+- Requires at least a few months of data for accurate predictions  
+
+---
+
+## 🎯 Future Improvements
+- Deep learning based predictions  
+- Real-time analytics dashboard  
+- Mobile app version  
+
+---
+
+## 👨‍💻 Author
+Vansh Jain  
+Ayush Kushwaha
+Mohd. Yasir
+
+---
+
+## ⭐ If you like this project, give it a star!
