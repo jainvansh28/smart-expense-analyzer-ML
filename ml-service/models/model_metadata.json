@@ -1,0 +1,24 @@
+{
+  "trained_at": "2026-03-08T18:32:00.801817",
+  "model_type": "LinearRegression",
+  "feature_columns": [
+    "user_id",
+    "month",
+    "category_encoded",
+    "month_sin",
+    "month_cos",
+    "rolling_avg_3m",
+    "category_percentage"
+  ],
+  "metrics": {
+    "train_mae": 1437.3988981535051,
+    "test_mae": 1900.4309278504054,
+    "train_rmse": 2538.0912751182855,
+    "test_rmse": 3202.1774678728934,
+    "train_r2": 0.9396131547042242,
+    "test_r2": 0.8844511385867021,
+    "train_samples": 239,
+    "test_samples": 60
+  },
+  "version": "1.0"
+}

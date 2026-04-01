@@ -1,0 +1,133 @@
+{
+  "model_type": "RandomForestRegressor",
+  "training_date": "2026-03-08T21:38:02.195456",
+  "training_samples": 299,
+  "n_users": 3,
+  "n_categories": 7,
+  "categories": [
+    "Bills",
+    "Entertainment",
+    "Food",
+    "Health",
+    "Other",
+    "Shopping",
+    "Travel"
+  ],
+  "feature_columns": [
+    "user_id",
+    "category_encoded",
+    "month",
+    "monthly_income",
+    "avg_spent",
+    "std_spent",
+    "expense_count",
+    "spending_consistency",
+    "pct_of_income"
+  ],
+  "train_score": 0.9895569482903402,
+  "test_score": 0.9586506674299046,
+  "n_estimators": 100,
+  "category_statistics": [
+    {
+      "category": "Bills",
+      "total_spent_mean": 25583.168,
+      "total_spent_std": 9090.291864857456,
+      "total_spent_min": 6611.73,
+      "total_spent_max": 48883.6,
+      "spending_consistency_mean": 0.229945279751432,
+      "pct_of_income_mean": 85.22460434236967
+    },
+    {
+      "category": "Entertainment",
+      "total_spent_mean": 3871.896818181818,
+      "total_spent_std": 2790.287485471764,
+      "total_spent_min": 343.16,
+      "total_spent_max": 13380.75,
+      "spending_consistency_mean": 0.5773526090971485,
+      "pct_of_income_mean": 11.942920452200717
+    },
+    {
+      "category": "Food",
+      "total_spent_mean": 4619.408444444444,
+      "total_spent_std": 2873.9523575406456,
+      "total_spent_min": 1513.89,
+      "total_spent_max": 19531.71,
+      "spending_consistency_mean": 0.4922778670280169,
+      "pct_of_income_mean": 14.757029664926312
+    },
+    {
+      "category": "Health",
+      "total_spent_mean": 4260.4364864864865,
+      "total_spent_std": 2414.4469444116967,
+      "total_spent_min": 773.81,
+      "total_spent_max": 10018.05,
+      "spending_consistency_mean": 0.666572884156378,
+      "pct_of_income_mean": 14.80982988569052
+    },
+    {
+      "category": "Other",
+      "total_spent_mean": 2262.1785365853657,
+      "total_spent_std": 1297.0886438146024,
+      "total_spent_min": 124.9,
+      "total_spent_max": 5128.62,
+      "spending_consistency_mean": 0.549661634346683,
+      "pct_of_income_mean": 7.595401916307997
+    },
+    {
+      "category": "Shopping",
+      "total_spent_mean": 15624.808666666668,
+      "total_spent_std": 10421.051953143517,
+      "total_spent_min": 1209.71,
+      "total_spent_max": 43913.81,
+      "spending_consistency_mean": 0.5187345167663553,
+      "pct_of_income_mean": 43.33536650742133
+    },
+    {
+      "category": "Travel",
+      "total_spent_mean": 1309.397380952381,
+      "total_spent_std": 694.2852720008999,
+      "total_spent_min": 117.19,
+      "total_spent_max": 2784.42,
+      "spending_consistency_mean": 0.5731757313815518,
+      "pct_of_income_mean": 4.086097331818896
+    }
+  ],
+  "feature_importance": [
+    {
+      "feature": "pct_of_income",
+      "importance": 0.8597595520148715
+    },
+    {
+      "feature": "expense_count",
+      "importance": 0.08496328004509177
+    },
+    {
+      "feature": "avg_spent",
+      "importance": 0.019154053101763165
+    },
+    {
+      "feature": "monthly_income",
+      "importance": 0.01850218650787183
+    },
+    {
+      "feature": "std_spent",
+      "importance": 0.010244480623703684
+    },
+    {
+      "feature": "category_encoded",
+      "importance": 0.002640572722762448
+    },
+    {
+      "feature": "month",
+      "importance": 0.0017843485902288268
+    },
+    {
+      "feature": "spending_consistency",
+      "importance": 0.0017306581644160584
+    },
+    {
+      "feature": "user_id",
+      "importance": 0.0012208682292907471
+    }
+  ]
+}

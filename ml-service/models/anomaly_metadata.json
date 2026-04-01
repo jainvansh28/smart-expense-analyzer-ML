@@ -1,0 +1,33 @@
+{
+  "model_type": "IsolationForest",
+  "training_date": "2026-03-08T21:05:59.316081",
+  "training_samples": 1587,
+  "n_users": 3,
+  "n_categories": 7,
+  "categories": [
+    "Bills",
+    "Entertainment",
+    "Food",
+    "Health",
+    "Other",
+    "Shopping",
+    "Travel"
+  ],
+  "feature_columns": [
+    "amount",
+    "category_encoded",
+    "month",
+    "day_of_week",
+    "amount_deviation",
+    "pct_of_monthly",
+    "expense_count"
+  ],
+  "contamination": 0.05,
+  "n_estimators": 100,
+  "anomalies_detected": 80,
+  "normal_expenses": 1507,
+  "date_range": {
+    "start": "2025-01-01",
+    "end": "2026-03-28"
+  }
+}
