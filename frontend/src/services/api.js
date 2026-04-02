@@ -9,6 +9,7 @@ const api = axios.create({
   },
 });
 
+// 🔐 Add token automatically
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token');
@@ -17,11 +18,10 @@ api.interceptors.request.use(
     }
     return config;
   },
-  (error) => {
-    return Promise.reject(error);
-  }
+  (error) => Promise.reject(error)
 );
 
+// ================= AUTH =================
 export const authAPI = {
   sendOtp: (email) => api.post('/auth/send-otp', { email }),
   verifyOtp: (email, otp) => api.post('/auth/verify-otp', { email, otp }),
@@ -29,6 +29,7 @@ export const authAPI = {
   login: (data) => api.post('/auth/login', data),
 };
 
+// ================= EXPENSE =================
 export const expenseAPI = {
   add: (data) => api.post('/expense/add', data),
   update: (id, data) => api.put(`/expense/update/${id}`, data),
@@ -40,6 +41,7 @@ export const expenseAPI = {
   removeAnomaly: (id) => api.put(`/expense/${id}/remove-anomaly`),
 };
 
+// ================= BUDGET =================
 export const budgetAPI = {
   set: (data) => api.post('/budgets', data),
   list: (month, year) => {
@@ -52,6 +54,7 @@ export const budgetAPI = {
   delete: (id) => api.delete(`/budgets/${id}`),
 };
 
+// ================= PLANNED =================
 export const plannedExpenseAPI = {
   add: (data) => api.post('/planned-expenses', data),
   list: () => api.get('/planned-expenses'),
@@ -61,6 +64,7 @@ export const plannedExpenseAPI = {
   delete: (id) => api.delete(`/planned-expenses/${id}`),
 };
 
+// ================= GOALS =================
 export const goalsAPI = {
   add: (data) => api.post('/goals', data),
   list: () => api.get('/goals'),
@@ -70,6 +74,7 @@ export const goalsAPI = {
   delete: (id) => api.delete(`/goals/${id}`),
 };
 
+// ================= ANALYTICS =================
 export const analyticsAPI = {
   getMonthly: (year, month) => {
     const params = {};
@@ -79,6 +84,7 @@ export const analyticsAPI = {
   },
 };
 
+// ================= PREDICTION =================
 export const predictionAPI = {
   getNextMonth: () => api.get('/prediction/next-month'),
   getLatest: () => api.get('/prediction/latest'),
@@ -86,10 +92,12 @@ export const predictionAPI = {
   getMLServiceInfo: () => api.get('/prediction/ml-service-info'),
 };
 
+// ================= AI =================
 export const aiAPI = {
   getBudgetWarning: () => api.get('/ai/budget-warning'),
 };
 
+// ================= INSIGHTS =================
 export const insightsAPI = {
   getAll: () => api.get('/insights/all'),
   getMonthlyComparison: () => api.get('/insights/monthly-comparison'),
@@ -102,12 +110,14 @@ export const insightsAPI = {
   getSpendingHeatmap: () => api.get('/insights/spending-heatmap'),
 };
 
+// ================= ML =================
 export const mlBudgetAPI = {
   getRecommendations: () => api.get('/ml/budget-recommendation'),
   getModelInfo: () => api.get('/ml/budget-model-info'),
   getServiceStatus: () => api.get('/ml/budget-service-status'),
 };
 
+// ================= INCOME =================
 export const incomeAPI = {
   add: (data) => api.post('/income/add', data),
   update: (id, data) => api.put(`/income/update/${id}`, data),
@@ -121,6 +131,7 @@ export const incomeAPI = {
   },
 };
 
+// ================= USER =================
 export const userAPI = {
   getProfile: () => api.get('/user/profile'),
   changePassword: (data) => api.post('/user/change-password', data),
