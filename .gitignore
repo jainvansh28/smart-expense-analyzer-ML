@@ -46,3 +46,5 @@ logs/
 
 # Environment variables
 .env
+frontend/.env
+backend/src/main/resources/application-local.properties
