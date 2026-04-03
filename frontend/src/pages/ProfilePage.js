@@ -124,7 +124,7 @@ const ProfilePage = () => {
   const handleSavePrivacySettings = async () => {
     try {
       setLoading(true);
-      const res = await userAPI.updatePrivacySettings(privacySettings);
+      await userAPI.updatePrivacySettings(privacySettings);
       
       // Update user context
       if (setUser) {
