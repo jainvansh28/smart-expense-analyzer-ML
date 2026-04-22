@@ -17,26 +17,6 @@ public class AuthController {
     @Autowired
     private AuthService authService;
     
-    @PostMapping("/send-otp")
-    public ResponseEntity<?> sendOtp(@RequestBody Map<String, String> request) {
-        try {
-            String message = authService.sendOtp(request.get("email"));
-            return ResponseEntity.ok(Map.of("message", message));
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
-        }
-    }
-    
-    @PostMapping("/verify-otp")
-    public ResponseEntity<?> verifyOtp(@RequestBody Map<String, String> request) {
-        try {
-            String message = authService.verifyOtp(request.get("email"), request.get("otp"));
-            return ResponseEntity.ok(Map.of("message", message));
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
-        }
-    }
-    
     @PostMapping("/signup")
     public ResponseEntity<?> signup(@Valid @RequestBody SignupRequest request) {
         try {

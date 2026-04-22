@@ -69,6 +69,11 @@ const LoginPage = () => {
           </motion.div>
         )}
 
+        {/* Demo mode banner */}
+        <div className="bg-yellow-500/20 border border-yellow-500/50 text-yellow-300 text-sm text-center px-4 py-2 rounded-lg mb-4">
+          ⚠️ Demo Mode: Email verification disabled
+        </div>
+
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label className="text-white block mb-2 font-semibold">Email</label>
