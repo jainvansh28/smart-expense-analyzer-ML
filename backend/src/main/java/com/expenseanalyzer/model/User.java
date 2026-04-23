@@ -12,36 +12,45 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     @Column(nullable = false, length = 100)
     private String name;
-    
+
     @Column(nullable = false, unique = true, length = 100)
     private String email;
-    
+
     @Column(nullable = false)
     private String password;
-    
+
+    // ── OTP verification ──────────────────────────────────────────────────────
+    @Column(name = "otp_code", length = 6)
+    private String otpCode;
+
+    @Column(name = "otp_expiry")
+    private LocalDateTime otpExpiry;
+
+    @Column(name = "is_verified", nullable = false)
+    private Boolean isVerified = false;
+
+    // ── Preferences ───────────────────────────────────────────────────────────
     @Column(name = "email_notifications")
     private Boolean emailNotifications = true;
-    
+
     @Column(name = "show_sensitive_info")
     private Boolean showSensitiveInfo = true;
-    
+
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
-    
+
     @PrePersist
     protected void onCreate() {
         createdAt = LocalDateTime.now();
-        if (emailNotifications == null) {
-            emailNotifications = true;
-        }
-        if (showSensitiveInfo == null) {
-            showSensitiveInfo = true;
-        }
+        if (emailNotifications == null) emailNotifications = true;
+        if (showSensitiveInfo == null)  showSensitiveInfo  = true;
+        if (isVerified == null)         isVerified         = false;
     }
 }

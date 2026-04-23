@@ -19,7 +19,10 @@ const LoginPage = () => {
     setError('');
     try {
       const response = await authAPI.login(formData);
-      login({ id: response.data.id, name: response.data.name, email: response.data.email }, response.data.token);
+      login(
+        { id: response.data.id, name: response.data.name, email: response.data.email },
+        response.data.token
+      );
       navigate('/dashboard');
     } catch (err) {
       setError(err.response?.data?.error || 'Login failed');
@@ -28,29 +31,32 @@ const LoginPage = () => {
     }
   };
 
+  // If backend says "verify OTP", offer a shortcut to signup page
+  const needsVerification = error.toLowerCase().includes('verify');
+
   return (
     <div className="min-h-screen premium-bg relative flex items-center justify-center p-6">
       <AnimatedBackground />
-      
+
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         className="glass-card p-8 w-full max-w-md relative z-10"
       >
-        <motion.button 
+        <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          onClick={() => navigate('/')} 
+          onClick={() => navigate('/')}
           className="text-white mb-6 flex items-center gap-2 hover:text-cyan-300 transition"
         >
           <ArrowLeft size={20} /> Back
         </motion.button>
-        
+
         <div className="text-center mb-8">
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            transition={{ type: "spring", stiffness: 200 }}
+            transition={{ type: 'spring', stiffness: 200 }}
             className="inline-block mb-4"
           >
             <LogIn className="text-cyan-400" size={48} />
@@ -58,7 +64,7 @@ const LoginPage = () => {
           <h2 className="text-4xl font-bold text-white mb-2">Welcome Back</h2>
           <p className="text-gray-400">Sign in to continue to your dashboard</p>
         </div>
-        
+
         {error && (
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -66,13 +72,16 @@ const LoginPage = () => {
             className="bg-red-500/20 border border-red-500 text-white p-3 rounded-lg mb-4"
           >
             {error}
+            {needsVerification && (
+              <button
+                onClick={() => navigate('/signup')}
+                className="block mt-2 text-cyan-400 hover:text-cyan-300 text-sm underline"
+              >
+                Go to signup to verify your OTP →
+              </button>
+            )}
           </motion.div>
         )}
-
-        {/* Demo mode banner */}
-        <div className="bg-yellow-500/20 border border-yellow-500/50 text-yellow-300 text-sm text-center px-4 py-2 rounded-lg mb-4">
-          ⚠️ Demo Mode: Email verification disabled
-        </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
@@ -89,7 +98,7 @@ const LoginPage = () => {
               />
             </div>
           </div>
-          
+
           <div>
             <label className="text-white block mb-2 font-semibold">Password</label>
             <div className="flex items-center bg-white/10 rounded-lg p-3 input-animated border border-purple-500/30">
@@ -118,7 +127,10 @@ const LoginPage = () => {
 
         <p className="text-gray-400 text-center mt-6">
           Don't have an account?{' '}
-          <button onClick={() => navigate('/signup')} className="text-cyan-400 hover:text-cyan-300 font-semibold transition">
+          <button
+            onClick={() => navigate('/signup')}
+            className="text-cyan-400 hover:text-cyan-300 font-semibold transition"
+          >
             Sign Up
           </button>
         </p>
